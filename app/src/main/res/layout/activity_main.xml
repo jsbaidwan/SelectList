@@ -20,8 +20,7 @@
         android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/heading"
-        android:layout_above="@+id/button"
+        android:layout_below="@+id/result_text_view"
         android:padding="16dp"
 
       />
@@ -30,6 +29,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button"
-        android:layout_alignParentBottom="true"/>
+        android:onClick="button"
+android:layout_below="@id/heading"        />
+
+    <TextView
+        android:id="@+id/result_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button"        />
 
 </RelativeLayout>

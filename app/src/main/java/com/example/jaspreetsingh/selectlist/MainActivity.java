@@ -2,10 +2,12 @@ package com.example.jaspreetsingh.selectlist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements android.widget.Co
     ListView listView;
     ArrayList<Names> nameList ;
     NameAdapter nameAdapter;
+    String name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +51,22 @@ public class MainActivity extends AppCompatActivity implements android.widget.Co
             Names n = nameList.get(pos);
             n.setSelected(isChecked);
 
-            Toast.makeText(this, "Name: "+n.getFirstName()+"State is; "
-                            + isChecked, Toast.LENGTH_LONG).show();
+            name = n.getFirstName();
+
+           // displayText(name);
+//            Toast.makeText(this, "Name: "+n.getFirstName()+"State is; "
+//                            + isChecked, Toast.LENGTH_LONG).show();
         }
+    }
+
+public void button  (View view)   {
+
+    displayText(name);
+}
+
+    public void displayText(String result) {
+        TextView resultTextView = (TextView) findViewById(R.id.result_text_view);
+        resultTextView.setText(result);
     }
 
 }
