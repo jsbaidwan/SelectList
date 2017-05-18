@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements android.widget.Co
         nameList.add(new Names("Chris","Evans",false));
         nameList.add(new Names("Robert","Dowery",false));
         nameList.add(new Names("Jon","Jones",false));
-        nameList.add(new Names("Tom","Bradsy",false));
+        nameList.add(new Names("Tom","Brady",false));
 
         nameAdapter = new NameAdapter(nameList, this);
 
