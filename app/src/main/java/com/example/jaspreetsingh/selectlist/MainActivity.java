@@ -20,7 +20,9 @@ public class MainActivity extends AppCompatActivity implements android.widget.Co
     ListView listView;
     ArrayList<Names> nameList ;
     NameAdapter nameAdapter;
-    String name = "";
+    String firstName;
+    String lastName;
+    boolean selection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,9 @@ public class MainActivity extends AppCompatActivity implements android.widget.Co
             Names n = nameList.get(pos);
             n.setSelected(isChecked);
 
-            name = n.getFirstName();
+            selection = isChecked;
+                firstName = n.getFirstName();
+                lastName = n.getLastName();
 
            // displayText(name);
 //            Toast.makeText(this, "Name: "+n.getFirstName()+"State is; "
@@ -59,9 +63,19 @@ public class MainActivity extends AppCompatActivity implements android.widget.Co
         }
     }
 
+//    public String fullNameSummary (String firstName, String lastName) {
+//        String fullName = firstName + lastName;
+//
+//        return fullName;
+ //   }
+
 public void button  (View view)   {
 
-    displayText(name);
+    if(selection) {
+        String fullName = firstName + lastName;
+
+        displayText(fullName);
+    }
 }
 
     public void displayText(String result) {
