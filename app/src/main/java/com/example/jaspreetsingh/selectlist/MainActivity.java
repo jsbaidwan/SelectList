@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import static android.R.attr.name;
 import static android.os.Build.VERSION_CODES.N;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements android.widget.CompoundButton.OnCheckedChangeListener {
 
     ListView listView;
     ArrayList<Names> nameList ;
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         listView.setAdapter(nameAdapter);
     }
-
-    public void onCheckChanged(CompoundButton buttonView, boolean isChecked){
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         int pos = listView.getPositionForView(buttonView);
         if(pos != ListView.INVALID_POSITION)    {
             Names n = nameList.get(pos);
@@ -52,4 +52,5 @@ public class MainActivity extends AppCompatActivity {
                             + isChecked, Toast.LENGTH_LONG).show();
         }
     }
+
 }

@@ -41,7 +41,7 @@ public class NameAdapter extends ArrayAdapter<Names> {
         this.namesList = namesList;
     }
 
-    private static class nameHolder {
+    private static class NameHolder {
         public TextView firstName;
         public TextView lastName;
         public CheckBox checkBox;
@@ -54,24 +54,24 @@ public class NameAdapter extends ArrayAdapter<Names> {
     public View getView (int position, View convertView, ViewGroup parent)   {
 
         View v = convertView;
-        nameHolder holder = new nameHolder();
+        NameHolder holder = new NameHolder();
         if(convertView == null)   {
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-             v = inflater.inflate(R.layout.list_view,null);
+             v = inflater.inflate(R.layout.list_view, null);
 
             holder.firstName = (TextView) v.findViewById(R.id.first_name);
             holder.lastName = (TextView) v.findViewById(R.id.last_name);
             holder.checkBox = (CheckBox) v.findViewById(R.id.check_box);
 
-           // holder.checkBox.setOnCheckedChangeListener((CompoundButton.OnCheckedChangeListener));
+           holder.checkBox.setOnCheckedChangeListener((MainActivity) context);
         }
         else    {
-            holder = (nameHolder) v.getTag();
+            holder = (NameHolder) v.getTag();
         }
         Names p = namesList.get(position);
         holder.firstName.setText(p.getFirstName());
-        holder.lastName.setText("" + p.getLastName());
+        holder.lastName.setText( p.getLastName());
         holder.checkBox.setChecked(p.isSelected());
         holder.checkBox.setTag(p);
 
