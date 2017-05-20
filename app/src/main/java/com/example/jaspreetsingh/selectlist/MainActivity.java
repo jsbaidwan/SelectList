@@ -58,7 +58,11 @@ public class MainActivity extends AppCompatActivity implements android.widget.Co
                 firstName = n.getFirstName();
                 lastName = n.getLastName();
                 String fullName = firstName + lastName ;
-                summary.add(fullName);
+            if(selection)   {
+            summary.add(firstName);}
+             if(!selection)   {
+                summary.remove(firstName);
+            }
         }
     }
 
@@ -66,10 +70,9 @@ public class MainActivity extends AppCompatActivity implements android.widget.Co
 
 public void button  (View view)   {
 
-    if(selection) {
 
         displayText(summary);
-    }
+
 }
 
     public void displayText(ArrayList<String> result) {
