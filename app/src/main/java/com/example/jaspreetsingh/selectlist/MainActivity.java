@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements android.widget.Co
     String firstName;
     String lastName;
     boolean selection;
+    ArrayList<String> summary = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,31 +57,24 @@ public class MainActivity extends AppCompatActivity implements android.widget.Co
             selection = isChecked;
                 firstName = n.getFirstName();
                 lastName = n.getLastName();
-
-           // displayText(name);
-//            Toast.makeText(this, "Name: "+n.getFirstName()+"State is; "
-//                            + isChecked, Toast.LENGTH_LONG).show();
+                String fullName = firstName + lastName ;
+                summary.add(fullName);
         }
     }
 
-//    public String fullNameSummary (String firstName, String lastName) {
-//        String fullName = firstName + lastName;
-//
-//        return fullName;
- //   }
+
 
 public void button  (View view)   {
 
     if(selection) {
-        String fullName = firstName + lastName;
 
-        displayText(fullName);
+        displayText(summary);
     }
 }
 
-    public void displayText(String result) {
+    public void displayText(ArrayList<String> result) {
         TextView resultTextView = (TextView) findViewById(R.id.result_text_view);
-        resultTextView.setText(result);
+        resultTextView.setText(result.toString());
     }
 
 }
