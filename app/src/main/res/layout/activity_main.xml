@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/heading"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Fisrt Name/ Last Name"
-        android:textSize="16sp"
+        android:textStyle="bold"
         android:textAllCaps="true"
-        />
+        android:textSize="16sp" />
 
     <ListView
         android:id="@+id/lv"
@@ -23,21 +23,23 @@
         android:layout_below="@+id/result_text_view"
         android:padding="16dp"
 
-      />
+        />
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_below="@id/heading"
         android:onClick="button"
-android:layout_below="@id/heading"        />
+        android:background="#eaf204"
+        android:text="Button" />
 
     <TextView
         android:id="@+id/result_text_view"
-        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/button"
-        />
+        android:textStyle="bold"
+        android:padding="16dp" />
 
 </RelativeLayout>

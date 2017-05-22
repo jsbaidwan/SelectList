@@ -33,7 +33,6 @@ public class NameAdapter extends ArrayAdapter<Names> {
      * This is our own custom constructor
      * the context is used to inflate the layout file, and the list is the data we want to
      * popluate into the lists.
-     *
      */
     public NameAdapter(List<Names> namesList, Context context) {
         super(context, R.layout.list_view, namesList);
@@ -51,30 +50,29 @@ public class NameAdapter extends ArrayAdapter<Names> {
      * Provides a view for an AdapterView
      */
     @Override
-    public View getView (int position, View convertView, ViewGroup parent)   {
+    public View getView(int position, View convertView, ViewGroup parent) {
 
         View v = convertView;
         NameHolder holder = new NameHolder();
-        if(convertView == null)   {
+        if (convertView == null) {
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-             v = inflater.inflate(R.layout.list_view, null);
+            v = inflater.inflate(R.layout.list_view, null);
 
             holder.firstName = (TextView) v.findViewById(R.id.first_name);
             holder.lastName = (TextView) v.findViewById(R.id.last_name);
             holder.checkBox = (CheckBox) v.findViewById(R.id.check_box);
 
-           holder.checkBox.setOnCheckedChangeListener((MainActivity) context);
-        }
-        else    {
+            holder.checkBox.setOnCheckedChangeListener((MainActivity) context);
+        } else {
             holder = (NameHolder) v.getTag();
         }
         Names p = namesList.get(position);
         holder.firstName.setText(p.getFirstName());
-        holder.lastName.setText( p.getLastName());
+        holder.lastName.setText(p.getLastName());
         holder.checkBox.setChecked(p.isSelected());
         holder.checkBox.setTag(p);
 
-    return v ;
+        return v;
     }
 }
